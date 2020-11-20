@@ -1,15 +1,12 @@
 const express = require ('express');
 const mockCity = require('../mockCities')
-// const client = require('./client');
+const client = require('../client');
+const cityController = require ('../controllers/citiesController')
 
 const cityRouter = express.Router();
 
-cityRouter.get('/', (req, res)=>{
-    res.send(JSON.stringify(mockCity));
-})
+cityRouter.get('/', cityController.getAll)
 
-cityRouter.get('/:id', (req, res)=>{
-    res.send('cityId')
-})
+cityRouter.get('/:id', cityController.getById )
 
 module.exports = cityRouter;

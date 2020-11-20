@@ -1,15 +1,12 @@
 const express = require ('express');
 const restaurant = require('../mockRestaurant');
-// const client = require('./client');
+const restaurantsController = require ('../controllers/restaurantsController')
+const client = require('../client');
 
 const restaurantRouter = express.Router();
 
-restaurantRouter.get('/', (req, res)=>{
-    res.send(JSON.stringify(restaurant));
-})
+restaurantRouter.get('/', restaurantsController.getAll);
 
-restaurantRouter.get('/:id', (req, res)=>{
-    res.send('restaurantId')
-})
+restaurantRouter.get('/:id', restaurantsController.getById);
 
 module.exports = restaurantRouter;

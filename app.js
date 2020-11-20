@@ -5,6 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require ('cors');
+const {Pool} =require('pg')
 // const pool =require ('./client');
 
 
@@ -28,5 +29,6 @@ app.use('/users', usersRouter);
 app.use('/cities', cityRouter);
 app.use('/restaurants', restaurantRouter);
 app.use('/tags', tagRouter);
+
 
 module.exports = app;

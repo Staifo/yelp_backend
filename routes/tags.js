@@ -1,15 +1,12 @@
 const express = require ('express');
 const mockTags = require('../mockTags');
-// const client = require('./client');
+const tagsController = require ('../controllers/tagsController')
+const client = require('../client');
 
 const tagRouter = express.Router();
 
-tagRouter.get('/', (req, res)=>{
-    res.send(JSON.stringify(mockTags));
-})
+tagRouter.get('/', tagsController.getAll)
 
-tagRouter.get('/:id', (req, res)=>{
-    res.send('tagId')
-})
+tagRouter.get('/:id', tagsController.getById)
 
 module.exports = tagRouter;
